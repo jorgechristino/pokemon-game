@@ -4,9 +4,9 @@ This project is a pokemon style game, it was developed using HTML, CSS and JavaS
 In the game you can walk around the map, interact with NPCs and enter pokemon battles.
 
 ## Map
-(https://github.com/jorgechristino/pokemon-game/blob/main/img/print1.jpg)
+![Map Image](https://github.com/jorgechristino/pokemon-game/blob/main/img/print1.jpg)
 ## Battle scene
-(https://github.com/jorgechristino/pokemon-game/blob/main/img/print2.jpg)
+![Battle Scene Image](https://github.com/jorgechristino/pokemon-game/blob/main/img/print2.jpg)
 ## How to install
 
 Required download: `node`. Open the terminal and write the commands below:
