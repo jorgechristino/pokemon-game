@@ -13,7 +13,7 @@ Required download: `node`. Open the terminal and write the commands below:
 
 ```console
 // Clone this repository
-$ git clone https://github.com/
+$ git clone https://github.com/jorgechristino/pokemon-game.git
 
 // Start the local server
 $ node server.js
