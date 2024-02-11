@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokémon Game</title>
+    <link rel="icon" type="image/x-icon" href="poke-ball-icon.ico" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="types.css" />
+  </head>
+  <body>
+    <div class="game">
+      <div class="overlappingDiv"></div>
+      <div class="instructions">
+        <h1>Game Instructions</h1>
+        <div class="instruction">
+          <img class="wasd" src="wasd.png" alt="wasd keys" />
+          <p>Press W, A, S, D to move the character</p>
+        </div>
+        <div class="instruction">
+          <div>
+            <img class="mouse" src="mouse-left-click.png" alt="mouse" />
+            <div>or</div>
+            <img class="enter" src="enter.png" alt="enter key" />
+          </div>
+          <p>Press Left Mouse Click or Enter to advance dialog boxes</p>
+        </div>
+        <div class="instruction">
+          <img class="enter" src="enter.png" alt="enter key" />
+          <p>Press Enter to interact with other characters on the map</p>
+        </div>
+        <div class="instruction">
+          <p class="author">Developed by Jorge Christino</p>
+          <p class="continue">Click to continue...</p>
+        </div>
+      </div>
+      <canvas></canvas>
+      <div class="introduction">
+        <div class="starter Bulbasaur">
+          <img src="bulbasaur.png" alt="bulbasaur" />
+          <div class="infoStarter">
+            <div class="name">Bulbasaur</div>
+            <div class="types">
+              <div class="type grass">Grass</div>
+              <div class="type poison">Poison</div>
+            </div>
+          </div>
+        </div>
+        <div class="starter Charmander">
+          <img src="charmander.png" alt="charmander" />
+          <div class="infoStarter">
+            <div class="name">Charmander</div>
+            <div class="types">
+              <div class="type fire">Fire</div>
+            </div>
+          </div>
+        </div>
+        <div class="starter Squirtle">
+          <img src="squirtle.png" alt="squirtle" />
+          <div class="infoStarter">
+            <div class="name">Squirtle</div>
+            <div class="types">
+              <div class="type water">Water</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="userInterface">
+        <!-- Represents health bar of enemy -->
+        <div class="hpBarInterface enemy">
+          <div class="info">
+            <span class="pokemonName">Pikachu</span>
+            <span class="level">Lv 5</span>
+          </div>
+          <div class="hpBars">
+            <div class="hpBar"></div>
+            <div class="enemyHealthBar"></div>
+          </div>
+        </div>
+
+        <!-- Represents health bar of your pokemon -->
+        <div class="hpBarInterface player">
+          <div class="info">
+            <span class="pokemonName">Charmander</span>
+            <span class="level">Lv 5</span>
+          </div>
+          <div class="hpBars">
+            <div class="hpBar"></div>
+            <div class="playerHealthBar"></div>
+          </div>
+          <div class="healthPoints"><span>100/100</span></div>
+          <div class="experienceBars">
+            <div class="experienceEmpty"></div>
+            <div class="experienceBar"></div>
+          </div>
+        </div>
+
+        <div class="battleInterface">
+          <div class="dialogueBox default">
+            <div class="text"></div>
+            <div class="buttons">
+              <button id="yes" class="btn">Yes</button>
+              <button id="no" class="btn">No</button>
+            </div>
+          </div>
+
+          <div class="attackBar"></div>
+          <div class="options">
+            <button class="fight">FIGHT</button>
+            <button class="bag disabled">BAG</button>
+            <button class="pokemon disabled">POKÉMON</button>
+            <button class="run">RUN</button>
+            <!-- <h1 class="attackType">Attack Type</h1> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"
+      integrity="sha512-cOH8ndwGgPo+K7pTvMrqYbmI8u8k6Sho3js0gOqVWTmQMlLIi6TbqGWRTpf1ga8ci9H3iPsvDLr4X7xwhC/+DQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js"
+      integrity="sha512-xi/RZRIF/S0hJ+yJJYuZ5yk6/8pCiRlEXZzoguSMl+vk2i3m6UjUO/WcZ11blRL/O+rnj94JRGwt/CHbc9+6EA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="showMessageAnimation.js"></script>
+    <script src="audio.js"></script>
+    <script src="collisions.js"></script>
+    <script src="attacks.js"></script>
+    <script src="pokemons.js"></script>
+    <script src="classes.js"></script>
+    <script src="index.js"></script>
+    <script src="laboratory.js"></script>
+    <script src="playerHome.js"></script>
+    <script src="pokemonCenter.js"></script>
+    <script src="route1.js"></script>
+    <script src="battleScene.js"></script>
+    </script>
+  </body>
+</html>

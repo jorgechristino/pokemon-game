@@ -1,0 +1,55 @@
+.types {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.type {
+  justify-content: center;
+  text-align: center;
+  align-self: center;
+  padding: 7.5px 15px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  font-weight: bold;
+  letter-spacing: 0.05rem;
+  box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.fire {
+  background: #fba54c;
+}
+
+.grass {
+  background: #5fbd58;
+}
+
+.poison {
+  background: #b763cf;
+}
+
+.water {
+  background: #539ddf;
+}
+
+.normal {
+  background: #a0a29f;
+}
+
+.attackFire {
+  box-shadow: inset 0 0 0 2px #545454, inset 0 0 0 7px #fba54c;
+}
+
+.attackNormal {
+  box-shadow: inset 0 0 0 2px #545454, inset 0 0 0 7px #a0a29f;
+}
+
+.attackGrass {
+  box-shadow: inset 0 0 0 2px #545454, inset 0 0 0 7px #5fbd58;
+}
+
+.attackWater {
+  box-shadow: inset 0 0 0 2px #545454, inset 0 0 0 7px #539ddf;
+}

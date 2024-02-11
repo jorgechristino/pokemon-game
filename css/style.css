@@ -1,0 +1,490 @@
+@font-face {
+  font-family: 'FontPlatinum';
+  src: url('pokemon-dp-pro.ttf');
+}
+
+@font-face {
+  font-family: 'FlexoRegular';
+  src: url('Flexo-Regular.ttf');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  font-family: 'FontPlatinum';
+}
+
+.game {
+  display: inline-block;
+  position: relative;
+}
+
+.overlappingDiv {
+  background-color: #000;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.instructions {
+  background-color: #225b8a;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 1;
+  z-index: 3;
+  color: #fff;
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  gap: 15px;
+  cursor: pointer;
+}
+
+.instructions h1 {
+  justify-self: center;
+  font-size: 3rem;
+}
+
+.instruction {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.instruction p {
+  font-size: 1.5rem;
+}
+
+.instruction div {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+}
+
+.instruction img {
+  height: 140px;
+  justify-self: center;
+  padding-bottom: 15px;
+}
+
+.instruction div div {
+  margin-right: 10px;
+  font-size: 1.5rem;
+}
+
+.author {
+  align-self: flex-end;
+  font-size: 1rem !important;
+  margin: 10px;
+}
+
+.continue {
+  padding-right: 40px;
+  grid-column: 2 / 2;
+  justify-self: flex-end;
+}
+
+.userInterface {
+  display: none;
+}
+
+.battleInterface {
+  background: #ece9e6;
+  height: 140px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top: 3px outset buttonborder;
+  display: flex;
+}
+
+.opacity0 {
+  opacity: 0;
+}
+
+.opacity1 {
+  opacity: 1;
+}
+
+.dialogueBox {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  font-size: 26px;
+  background-color: #fff;
+  color: #606468;
+  padding: 6px;
+  display: none;
+  z-index: 5;
+  box-shadow: inset 0 0 0 2px #545454, inset 0 0 0 8px #f8d868;
+  text-shadow: 1px 0px 1px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  margin: 5px;
+  letter-spacing: 1px;
+}
+
+.default {
+  pointer-events: none;
+}
+
+.active {
+  pointer-events: all;
+  cursor: pointer;
+}
+
+.text {
+  padding: 15px;
+  border: 10px solid #606068;
+  border-right-width: 20px;
+  border-left-width: 20px;
+  border-radius: 5px;
+  height: 100%;
+}
+
+.triangule {
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 12px solid #dc143c;
+  position: absolute;
+  margin-top: 8px;
+  margin-left: 8px;
+}
+
+.attackBar {
+  width: 66.66%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+a {
+  display: flex;
+  transform: translate(0%, 0%);
+  background: #ece9e6;
+  border: 3px solid #ece9e6;
+  border-radius: 5px;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  color: #52525a;
+  margin: 5px;
+  cursor: pointer;
+  font-size: 20px;
+  text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);
+  letter-spacing: 1px;
+}
+
+a p {
+  margin-right: 50px;
+}
+
+a:before,
+a:after,
+span:before,
+span:after {
+  content: '';
+  position: absolute;
+  background: red;
+  transition: 1s;
+  mix-blend-mode: hue;
+}
+
+a:hover:before {
+  top: -5px;
+  left: -5px;
+  width: 11px;
+  height: 7px;
+}
+a:hover:after {
+  top: -5px;
+  right: -5px;
+  width: 11px;
+  height: 7px;
+}
+a:hover span:before {
+  bottom: -5px;
+  left: -5px;
+  width: 11px;
+  height: 7px;
+}
+a:hover span:after {
+  bottom: -5px;
+  right: -5px;
+  width: 11px;
+  height: 7px;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  width: 33.33%;
+}
+
+.options button {
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  font-family: 'FontPlatinum';
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.fight {
+  box-shadow: inset 0 0 0 5px #e9363c;
+  background: #9b5152;
+}
+.fight:hover {
+  background: #9b1f21;
+}
+
+.bag {
+  box-shadow: inset 0 0 0 5px #bd8526;
+  background: #826927;
+}
+.bag:hover {
+  background: #775c12;
+}
+
+.pokemon {
+  box-shadow: inset 0 0 0 5px #4c9d24;
+  background: #436b2c;
+}
+.pokemon:hover {
+  background: #1f4409;
+}
+
+.run {
+  box-shadow: inset 0 0 0 5px #36befc;
+  background: #285071;
+}
+.run:hover {
+  background: #225b8a;
+}
+
+button {
+  cursor: pointer;
+  margin: 5px;
+}
+
+button.disabled {
+  background-color: #818181;
+  box-shadow: none;
+}
+
+button.disabled:hover {
+  background-color: #818181;
+}
+
+.attack:hover {
+  background-color: #ccc;
+}
+
+.hpBarInterface {
+  background-color: #74786c;
+  box-shadow: inset 0 0 0 4px #a4a89c;
+  border: 7px solid #404440;
+  border-radius: 5px;
+  color: #e4f0f0;
+  width: 250px;
+  position: absolute;
+  letter-spacing: 2px;
+  padding: 12px;
+}
+
+.hpBarInterface.enemy {
+  top: 50px;
+  left: 50px;
+}
+
+.hpBarInterface.player {
+  top: 330px;
+  right: 50px;
+  border-bottom-width: 15px;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pokemonName {
+  font-size: 1.2rem;
+}
+
+.level {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-right: 25px;
+}
+
+.hpBars {
+  position: relative;
+  width: 70%;
+  margin-left: auto;
+}
+
+.hpBar {
+  height: 6px;
+  background-color: #ccc;
+  margin-top: 10px;
+  border: 2px solid white;
+}
+
+.enemyHealthBar,
+.playerHealthBar {
+  height: 6px;
+  background-color: #0f0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 2px;
+  border: 2px solid white;
+  border-right-width: 0;
+}
+
+.healthPoints {
+  display: flex;
+  justify-content: end;
+  margin-top: 5px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  letter-spacing: 5px;
+}
+
+.experienceBars {
+  position: relative;
+  bottom: -20px;
+}
+
+.experienceEmpty {
+  height: 3px;
+  background-color: #e4f0f0;
+}
+
+.experienceBar {
+  height: 3px;
+  background-color: #60a0c8;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.introduction {
+  display: none;
+  position: absolute;
+  height: 504px;
+  top: 0;
+  left: 0;
+  right: 0;
+  grid-template-columns: repeat(3, 1fr);
+  font-family: 'FlexoRegular';
+}
+
+.Bulbasaur {
+  background-color: #709e91;
+}
+
+.Charmander {
+  background-color: #eaab7d;
+}
+
+.Squirtle {
+  background-color: #90c6d3;
+}
+
+.starter {
+  position: relative;
+  transition: 0.3s all;
+  cursor: pointer;
+}
+
+.starter img {
+  width: 100%;
+}
+
+.infoStarter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 25px;
+  margin-top: 25px;
+}
+
+.starter:hover {
+  opacity: 1;
+}
+
+.name {
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 0.05rem;
+  color: white;
+  text-shadow: 1px 1px 2px #000000;
+}
+
+.introduction:hover .starter:not(:hover) {
+  opacity: 0.9;
+}
+
+.introduction:hover .starter:not(:hover)::after {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.starter::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  transition: 0.3s;
+}
+
+.buttons {
+  margin-top: -55px;
+  margin-left: 35px;
+  opacity: 0;
+  gap: 10px;
+  display: none;
+}
+
+.btn {
+  margin: 0;
+  border: none;
+  font-size: 26px;
+  font-family: 'FontPlatinum';
+  background-color: transparent;
+  color: #606468;
+  text-shadow: 1px 0px 1px rgba(0, 0, 0, 0.5);
+  letter-spacing: 1px;
+  pointer-events: all;
+}
+
+.btn:hover {
+  color: #dc143c;
+}
