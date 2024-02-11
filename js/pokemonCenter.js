@@ -237,9 +237,7 @@ function talkingToNurse() {
 }
 
 function healingAnimation() {
-  queue.push(() => {
-    showMessage("Okay. I'll take your Pokémon for a few seconds.", false, false);
-  });
+  showMessage("Okay. I'll take your Pokémon for a few seconds.", false, false);
   nurse.image.src = nurseSprites[1];
 
   setTimeout(() => {
